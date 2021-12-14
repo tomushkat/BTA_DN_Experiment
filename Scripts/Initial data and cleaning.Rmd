@@ -1,0 +1,29 @@
+---
+title: "Intial data and cleaning"
+author: "Tom Mushkat"
+date: "12/14/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE}
+
+originalData <- read_csv(here('Data//final 1312.csv'))
+
+colnames(originalData)
+```
+
+# Removing extra columns
+
+```{r, warning=FALSE, message=FALSE}
+
+Data_1 <- originalData %>% 
+  select (-c(StartDate, EndDate, Status, IPAddress, Progress, Finished,
+             RecipientLastName, RecipientFirstName, RecipientEmail, ExternalReference,
+             LocationLatitude, LocationLongitude, DistributionChannel, UserLanguage, drivingLicense, Q73,
+             everParticipated_2_TEXT, Disturbances_2_TEXT))
+
+```
