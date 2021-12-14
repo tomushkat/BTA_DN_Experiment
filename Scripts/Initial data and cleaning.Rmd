@@ -16,7 +16,7 @@ originalData <- read_csv(here('Data//final 1312.csv'))
 colnames(originalData)
 ```
 
-# Removing extra columns
+# Removing extra columns and initial deficit rows
 
 ```{r, warning=FALSE, message=FALSE}
 
@@ -26,4 +26,9 @@ Data_1 <- originalData %>%
              LocationLatitude, LocationLongitude, DistributionChannel, UserLanguage, drivingLicense, Q73,
              everParticipated_2_TEXT, Disturbances_2_TEXT))
 
+Data_2 <- Data_1 %>% 
+  filter(!Remove %in% c('Remove', 'Double'))
 ```
+
+
+  
